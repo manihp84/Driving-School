@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driving School Booking System</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <h1 class="logo">Driving School</h1>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#instructors">Instructors</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="{}">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Learn to Drive with Confidence</h2>
+            <p>Book driving classes with certified instructors and master the road safely.</p>
+            <a href="" class="btn-primary">Get Started</a>
+        </div>
+        <div class="hero-media">
+            <img src="{% static 'images/download.jpg' %}" alt="Driving School">
+            <video autoplay muted loop>
+                <source src="{% static 'videos/driving-school.mp4' %}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Why Choose Us?</h2>
+            <div class="feature-cards">
+                <div class="card">
+                    <img src="{% static 'images/feature1.jpg' %}" alt="Expert Instructors">
+                    <h3>Expert Instructors</h3>
+                    <p>Certified professionals to guide you every step of the way.</p>
+                </div>
+                <div class="card">
+                    <img src="{% static 'images/feature2.jpg' %}" alt="Flexible Scheduling">
+                    <h3>Flexible Scheduling</h3>
+                    <p>Book classes at your convenience, anytime, anywhere.</p>
+                </div>
+                <div class="card">
+                    <img src="{% static 'images/feature3.jpg' %}" alt="Online Payments">
+                    <h3>Easy Payments</h3>
+                    <p>Secure and hassle-free online payment options.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructors Section -->
+    <section id="instructors" class="instructors">
+        <div class="container">
+            <h2>Our Instructors</h2>
+            <div class="instructor-list">
+                {% for instructor in instructors %}
+                <div class="instructor-card">
+                    <img src="{% static 'images/instructor-placeholder.jpg' %}" alt="{{ instructor.name }}">
+                    <h3>{{ instructor.name }}</h3>
+                    <p>Email: {{ instructor.email }}</p>
+                    <p>Phone: {{ instructor.phone }}</p>
+                    <a href="{% url 'book_class' instructor.id %}" class="btn-secondary">Book Now</a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Driving School Booking System. All Rights Reserved.</p>
+            <ul class="social-links">
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Twitter</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
